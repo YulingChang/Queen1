@@ -8,8 +8,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView tvQuestion;
+    private TextView tvAnswer1;
+    private TextView tvAnswer2;
+    private TextView tvAnswer3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +32,55 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        tvQuestion = findViewById(R.id.question);
-        tvAnswer1 = findViewById(R.id.answer1);
-        tvAnswer2 = findViewById(R.id.answer2);
-        tvAnswer3 = findViewById(R.id.answer3);
+        tvQuestion = (TextView) findViewById(R.id.question);
+        tvAnswer1 = (TextView) findViewById(R.id.answer1);
+        tvAnswer2 = (TextView) findViewById(R.id.answer2);
+        tvAnswer3 = (TextView) findViewById(R.id.answer3);
         //get data from Firebase
-        
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference refQuestion = firebaseDatabase.getReference("question");
+        refQuestion.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String question = (String) dataSnapshot.getValue();
+                tvQuestion.setText(question);
 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        DatabaseReference refAnswer = firebaseDatabase.getReference("answer");
+        refAnswer.addValueEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+//3822822
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
