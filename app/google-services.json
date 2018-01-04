@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "872376585926",
+    "firebase_url": "https://queen-be90e.firebaseio.com",
+    "project_id": "queen-be90e",
+    "storage_bucket": "queen-be90e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872376585926:android:24556f25b01c59b2",
+        "android_client_info": {
+          "package_name": "com.ling.queen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872376585926-j3fo2p7igafn8t4jgn2vj31lbnot4vah.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ling.queen",
+            "certificate_hash": "ed5019cf606c3a05de89e42626c96ad20e2fb342"
+          }
+        },
+        {
+          "client_id": "872376585926-ddb9mfdah9a149idn2i1nu1k4qpdpaqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSEZTSwM9UD5C22Vvo7CATTzVuJg8GfsE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872376585926-ddb9mfdah9a149idn2i1nu1k4qpdpaqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
